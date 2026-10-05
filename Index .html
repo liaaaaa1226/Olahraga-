@@ -1,0 +1,312 @@
+<!html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tri Aulia | Atlet Bulu Tangkis Indonesia</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#E63946',
+                            crimson: '#D62828',
+                            gold: '#FFD166',
+                            dark: '#0B0F19',
+                            card: '#161F33',
+                            border: '#24324D',
+                            accent: '#00F5D4'
+                        }
+                    },
+                    animation: {
+                        'shuttle-float': 'float 3s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-12px) rotate(8deg)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 0.6, transform: 'scale(1)' },
+                            '50%': { opacity: 1, transform: 'scale(1.05)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B0F19;
+            color: #F3F4F6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FFD166 0%, #E63946 50%, #FF4D6D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FFF099 0%, #FFD166 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-glass {
+            background: rgba(22, 31, 51, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .court-grid {
+            background-image: radial-gradient(rgba(230, 57, 70, 0.15) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+    </style>
+</head>
+<body class="court-grid antialiased selection:bg-brand-red selection:text-white">
+
+    <nav class="fixed top-0 left-0 w-full z-50 bg-glass border-b border-brand-border/50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-red to-brand-crimson flex items-center justify-center text-white font-black text-xl shadow-lg shadow-brand-red/30 group-hover:scale-105 transition-transform">
+                    TA
+                </div>
+                <div>
+                    <span class="font-heading font-extrabold text-xl tracking-tight text-white block leading-none">TRI AULIA</span>
+                    <span class="text-xs text-brand-gold tracking-wider font-semibold uppercase">Badminton Athlete</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-300">
+                <a href="#profil" class="hover:text-brand-gold transition-colors">Profil</a>
+                <a href="#prestasi" class="hover:text-brand-gold transition-colors">Prestasi</a>
+                <a href="#skill" class="hover:text-brand-gold transition-colors">Analisis Skill</a>
+                <a href="#roadmap" class="hover:text-brand-gold transition-colors">Roadmap Juara</a>
+                <a href="#kalkulator" class="hover:text-brand-gold transition-colors">Kalkulator Match</a>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#kontak" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-red to-brand-crimson hover:from-red-600 hover:to-red-700 text-white font-bold text-sm shadow-md shadow-brand-red/20 transition-all hover:shadow-lg hover:shadow-brand-red/40 hover:-translate-y-0.5">
+                    <i class="fa-solid fa-paper-plane mr-2"></i> Kontak / Sponsor
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-2xl text-gray-300 hover:text-white p-2">
+                <i class="fa-solid fa-bars" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-card border-b border-brand-border px-6 py-4 flex flex-col gap-4">
+            <a href="#profil" class="mobile-nav-link text-gray-300 hover:text-brand-gold py-1 font-semibold">Profil</a>
+            <a href="#prestasi" class="mobile-nav-link text-gray-300 hover:text-brand-gold py-1 font-semibold">Prestasi</a>
+            <a href="#skill" class="mobile-nav-link text-gray-300 hover:text-brand-gold py-1 font-semibold">Analisis Skill</a>
+            <a href="#roadmap" class="mobile-nav-link text-gray-300 hover:text-brand-gold py-1 font-semibold">Roadmap Juara</a>
+            <a href="#kalkulator" class="mobile-nav-link text-gray-300 hover:text-brand-gold py-1 font-semibold">Kalkulator Match</a>
+            <a href="#kontak" class="mobile-nav-link px-5 py-2.5 rounded-full bg-brand-red text-center text-white font-bold text-sm mt-2">
+                Hubungi Saya
+            </a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen pt-28 pb-16 flex items-center overflow-hidden">
+        <!-- Glow Orbs BG -->
+        <div class="absolute top-1/4 left-10 w-96 h-96 bg-brand-red/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Hero Content -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-red/10 border border-brand-red/30 text-brand-gold text-xs sm:text-sm font-bold mb-6 animate-pulse-glow">
+                        <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span>
+                        📍 Kebanggaan Tolitoli, Sulawesi Tengah
+                    </div>
+
+                    <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-none mb-6">
+                        TRI AULIA <br>
+                        <span class="text-gradient">AMBISI JUARA DUNIA</span>
+                    </h1>
+
+                    <p class="text-gray-300 text-base sm:text-lg lg:text-xl font-normal leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+                        Dari lapangan lokal Tolitoli menuju panggung tertinggi kejuaraan dunia. Memiliki mentalitas pemenang, disiplin latihan tinggi, dan ketajaman serangan presisi untuk membawa harum nama Indonesia di BWF World Championships.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-12">
+                        <a href="#prestasi" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-red to-brand-crimson hover:from-red-600 hover:to-red-700 text-white font-extrabold text-base shadow-lg shadow-brand-red/30 transition-all hover:scale-105 flex items-center gap-3">
+                            <i class="fa-solid fa-trophy text-brand-gold"></i> Lihat Rekam Prestasi
+                        </a>
+                        <a href="#kontak" class="px-8 py-4 rounded-xl bg-brand-card border border-brand-border hover:border-brand-gold/50 text-white font-bold text-base transition-all hover:scale-105 flex items-center gap-3">
+                            <i class="fa-solid fa-handshake text-brand-accent"></i> Ajukan Sponsorship
+                        </a>
+                    </div>
+
+                    <!-- Key Stats Bar -->
+                    <div class="grid grid-cols-3 gap-4 p-6 rounded-2xl bg-brand-card/80 border border-brand-border/60 max-w-lg mx-auto lg:mx-0 shadow-xl">
+                        <div class="text-center lg:text-left">
+                            <div class="font-heading font-black text-2xl sm:text-3xl text-brand-gold">88%</div>
+                            <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Win Rate</div>
+                        </div>
+                        <div class="text-center lg:text-left border-x border-brand-border/60 px-2">
+                            <div class="font-heading font-black text-2xl sm:text-3xl text-white">320<span class="text-sm font-normal text-brand-red">km/h</span></div>
+                            <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Smash Speed</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="font-heading font-black text-2xl sm:text-3xl text-brand-accent">100%</div>
+                            <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Komitmen Juara</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Visual Graphic -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md aspect-square rounded-3xl bg-gradient-to-tr from-brand-card via-brand-card to-brand-red/20 border-2 border-brand-border p-8 flex flex-col justify-between overflow-hidden shadow-2xl group">
+                        
+                        <!-- Decorative Shuttlecock SVG Floating -->
+                        <div class="absolute -top-6 -right-6 text-brand-red/10 text-9xl pointer-events-none group-hover:rotate-12 transition-transform duration-700">
+                            <i class="fa-solid fa-shuttlecock"></i>
+                        </div>
+
+                        <!-- Card Header Badge -->
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-brand-red/20 text-brand-red font-bold text-xs uppercase tracking-widest border border-brand-red/30">
+                                Profil Atlet
+                            </span>
+                            <div class="animate-shuttle-float text-4xl text-brand-gold">
+                                🏸
+                            </div>
+                        </div>
+
+                        <!-- Center Avatar / Symbol -->
+                        <div class="my-auto text-center py-6">
+                            <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-tr from-brand-red via-brand-crimson to-brand-gold p-1 shadow-xl mb-4 relative">
+                                <div class="w-full h-full rounded-full bg-brand-dark flex items-center justify-center text-5xl text-white font-black font-heading">
+                                    TA
+                                </div>
+                                <div class="absolute bottom-1 right-1 w-8 h-8 rounded-full bg-emerald-500 border-2 border-brand-dark flex items-center justify-center text-white text-xs" title="Siap Bertanding">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                            </div>
+                            <h2 class="font-heading font-extrabold text-2xl text-white">TRI AULIA</h2>
+                            <p class="text-brand-gold text-sm font-semibold">Tolitoli, Sulawesi Tengah</p>
+                            <p class="text-xs text-gray-400 mt-1">Spesialisasi: Tunggal Putri / Ganda</p>
+                        </div>
+
+                        <!-- Card Footer Quote -->
+                        <div class="p-4 rounded-xl bg-brand-dark/80 border border-brand-border/80 text-xs italic text-gray-300 text-center">
+                            "Disiplin hari ini adalah pondasi piala dunia besok."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profil" class="py-20 bg-brand-dark/50 border-t border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-red font-bold text-sm tracking-widest uppercase">Mengenal Lebih Dekat</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white mt-2">Profil & Identitas Diri</h2>
+                <div class="w-16 h-1 bg-brand-red mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Bio Story Card -->
+                <div class="lg:col-span-2 p-8 rounded-2xl bg-brand-card border border-brand-border shadow-xl">
+                    <h3 class="font-heading font-bold text-2xl text-white mb-4 flex items-center gap-3">
+                        <i class="fa-solid fa-user-astronaut text-brand-gold"></i> Ringkasan Eksekutif & Visi Karier
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Lahir dan tumbuh di <strong class="text-white">Tolitoli, Sulawesi Tengah</strong>, Tri Aulia membawa semangat juang pantang menyerah khas daerah pesisir menuju arena kejuaraan bulu tangkis nasional dan internasional. Berbekal komitmen latihan yang disiplin serta dukungan dari keluarga dan komunitas, Tri Aulia terus meningkatkan daya tahan fisik, ketajaman taktis, serta kekuatan mental.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Target utamanya tidak sekadar menjadi juara regional, melainkan <strong class="text-brand-gold">Menembus Pelatnas PBSI, Menjuarai BWF Tour, dan Menjadi Juara Dunia Bulu Tangkis</strong> untuk mengibarkan bendera Merah Putih di panggung olahraga tertinggi.
+                    </p>
+
+                    <!-- Key Pillars -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-brand-border/60">
+                        <div class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/40">
+                            <i class="fa-solid fa-fire text-brand-red text-xl mb-2 block"></i>
+                            <h4 class="font-bold text-sm text-white">Etos Kerja</h4>
+                            <p class="text-xs text-gray-400">Latihan 6 hari seminggu dengan fokus daya tahan & footwork.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/40">
+                            <i class="fa-solid fa-brain text-brand-accent text-xl mb-2 block"></i>
+                            <h4 class="font-bold text-sm text-white">Mentalitas</h4>
+                            <p class="text-xs text-gray-400">Tenang di poin krusial dan tangguh dalam laga rubber game.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-dark/60 border border-brand-border/40">
+                            <i class="fa-solid fa-bullseye text-brand-gold text-xl mb-2 block"></i>
+                            <h4 class="font-bold text-sm text-white">Taktik Presisi</h4>
+                            <p class="text-xs text-gray-400">Variasi smash tajam dan permainan tipis di depan net.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Data Specs Table -->
+                <div class="p-8 rounded-2xl bg-brand-card border border-brand-border shadow-xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-6 border-b border-brand-border pb-3 flex items-center justify-between">
+                            <span>Atribut Teknis</span>
+                            <i class="fa-solid fa-sliders text-brand-red"></i>
+                        </h3>
+
+                        <div class="space-y-4 text-sm">
+                            <div class="flex justify-between items-center py-2 border-b border-brand-border/40">
+                                <span class="text-gray-400">Nama Lengkap</span>
+                                <span class="font-bold text-white">Tri Aulia</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-brand-border/40">
+                                <span class="text-gray-400">Domisili Asal</span>
+                                <span class="font-bold text-brand-gold">Tolitoli, Sulawesi Tengah</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-brand-border/40">
+                                <span class="text-gray-400">Pegangan Raket</span>
+                                <span class="font-bold text-white">Tangan Kanan</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-brand-border/40">
+                                <span class="text-gray-400">Gaya Permainan</span>
+                                <span class="font-bold text-brand-accent">Attacking Counter-Player</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-brand-border/40">
+                                <span class="text-gray-400">Target Utama</span>
+                                <span class="font-bold text-brand-red">BWF World Champion</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 p-4 rounded-xl bg-gradient-to-r from-brand-red/20 to-brand-gold/10 border border-brand-red/30">
+                        <div class="text-xs text-brand-gold font-semibold uppercase mb-1">Status Latihan</div>
+                        <div class="text-sm font-bold text-white flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            Aktif Latihan Intensif Pasca-Kejurda
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="prestasi" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brand-go
